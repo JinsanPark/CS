@@ -1,6 +1,6 @@
 class Solution {
     public int solution(String[] strArr) {
-        int[] sizeList = new int[strArr.length + 1];
+        int[] sizeList = new int[31];
         int answer = 0;
         
         for(int i = 0; i < strArr.length; i++) {
