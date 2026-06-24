@@ -10,12 +10,8 @@ class Solution {
         
         int[] answer = new int[bi];
         
-        for(int i = 0; i < bi; i++) {
-            if(i < len) {
+        for(int i = 0; i < len; i++) {
                 answer[i] = arr[i];
-            } else {
-                answer[i] = 0;
-            }
         }
         
         return answer;
