@@ -1,0 +1,31 @@
+class Solution {
+    public int solution(int[] arr1, int[] arr2) {
+        
+        int sum1 = 0;
+        int sum2 = 0;
+        int len1 = arr1.length;
+        int len2 = arr2.length;
+        
+        for (int i : arr1) {
+            sum1 += i;
+        }
+        
+        for (int i : arr2) {
+            sum2 += i;
+        }
+        
+        int answer = 0;
+        
+        if( len1 > len2 ) {
+            answer = 1;
+        } else if (len1 < len2) {
+            answer = -1;
+        } else if (sum1 > sum2) {
+            answer = 1;
+        } else if (sum1 < sum2) {
+            answer = -1;
+        } 
+        
+        return answer;
+    }
+}
