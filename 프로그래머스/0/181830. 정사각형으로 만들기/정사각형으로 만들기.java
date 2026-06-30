@@ -3,15 +3,9 @@ class Solution {
         
         int row = arr.length;
         int col = arr[0].length;
+        int max = Math.max(row,col);
         int[][] answer;
-        
-        if(row > col) {
-            answer = new int[row][row];   
-        } else if (row < col){
-            answer = new int[col][col];
-        } else {
-            return arr;
-        }
+        answer = new int[max][max];
         
         for(int i = 0; i < row; i++){
             for(int j = 0; j < col; j++){
