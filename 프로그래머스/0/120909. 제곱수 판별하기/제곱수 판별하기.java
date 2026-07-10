@@ -1,6 +1,6 @@
 class Solution {
     public int solution(int n) {
-        int sq = 2;
+        int sq = 1;
         int answer = 2;
         
         while(sq <= n){
