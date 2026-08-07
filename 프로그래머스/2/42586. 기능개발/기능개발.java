@@ -2,36 +2,37 @@ import java.util.*;
 
 class Solution {
     public int[] solution(int[] progresses, int[] speeds) {
-        List<Integer> result = new ArrayList<>();
-        List<Integer> listP = new ArrayList<>();
-        List<Integer> listS = new ArrayList<>();
-         
-        for(int i = 0; i < progresses.length; i++){
-            listP.add(progresses[i]);
-            listS.add(speeds[i]);
-        }
         
-        while(!listP.isEmpty()){
-            for(int i = 0; i < listP.size(); i++){
-                listP.set(i, listP.get(i) + listS.get(i));
-            }
+        List<Integer> list = new ArrayList<>();
+
+        for(int i = 0; i < progresses.length;){
             
-            int count = 0;
-            while(!listP.isEmpty() && listP.get(0) >= 100){
-                listP.remove(0);
-                listS.remove(0);
-                count++;
+            int cur = (100 - progresses[i] + speeds[i] - 1) / speeds[i];
+            int count = 1;
+            
+            for(int j = i + 1; j < progresses.length; j++){
+                int next = (100 - progresses[j] + speeds[j] - 1) / speeds[j];
+                if(cur < next){
+                    break;
+                } else {
+                    count++;
+                }
             }
             
             if(count != 0){
-                result.add(count);
+                list.add(count);
             }
+            
+            i += count;
+            
         }
         
-        int[] answer = new int[result.size()];
+        int[] answer = new int[list.size()];
         
-        for(int i = 0; i < result.size(); i++){
-            answer[i] = result.get(i);
+        for(int i = 0; i < answer.length; i++){
+            
+            answer[i] = list.get(i);
+            
         }
         
         return answer;
